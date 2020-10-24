@@ -1,13 +1,14 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A view showing a list of expenses.
-*/
+//
+//  CategoryView.swift
+//  Expense Test
+//
+//  Created by Bethany Hull on 10/24/20.
+//  Copyright © 2020 Bethany Hull. All rights reserved.
+//
 
 import SwiftUI
 
-struct ExpenseList: View {
+struct CategoryView: View {
     var body: some View {
         NavigationView {
             List(expenseData, id: \.id) { expense in
@@ -20,10 +21,10 @@ struct ExpenseList: View {
     }
 }
 
-struct ExpenseList_Previews: PreviewProvider {
+struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
-            ExpenseList()
+            CategoryView()
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

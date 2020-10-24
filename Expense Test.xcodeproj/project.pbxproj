@@ -18,8 +18,13 @@
 		330D867D253BE471000DB61A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D867C253BE471000DB61A /* Data.swift */; };
 		330D8680253BE58F000DB61A /* expenseData.json in Resources */ = {isa = PBXBuildFile; fileRef = 330D867F253BE58F000DB61A /* expenseData.json */; };
 		330D868E253BF694000DB61A /* ExpenseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D868D253BF694000DB61A /* ExpenseDetail.swift */; };
-		330D8690253BF6C8000DB61A /* ExpenseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D868F253BF6C8000DB61A /* ExpenseList.swift */; };
 		330D8692253BF700000DB61A /* ExpenseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D8691253BF700000DB61A /* ExpenseRow.swift */; };
+		33B8F5D52544C94400EAC168 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5D42544C94400EAC168 /* HomeView.swift */; };
+		33B8F5E62544CA8800EAC168 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5E52544CA8800EAC168 /* AddExpenseView.swift */; };
+		33B8F5F32544CAB700EAC168 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5F22544CAB700EAC168 /* ChartView.swift */; };
+		33B8F5F82544CAD800EAC168 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5F72544CAD800EAC168 /* ProfileView.swift */; };
+		33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */; };
+		33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F6012544CB8500EAC168 /* CategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +62,13 @@
 		330D867C253BE471000DB61A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		330D867F253BE58F000DB61A /* expenseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = expenseData.json; sourceTree = "<group>"; };
 		330D868D253BF694000DB61A /* ExpenseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetail.swift; sourceTree = "<group>"; };
-		330D868F253BF6C8000DB61A /* ExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseList.swift; sourceTree = "<group>"; };
 		330D8691253BF700000DB61A /* ExpenseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRow.swift; sourceTree = "<group>"; };
+		33B8F5D42544C94400EAC168 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		33B8F5E52544CA8800EAC168 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		33B8F5F22544CAB700EAC168 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		33B8F5F72544CAD800EAC168 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
+		33B8F6012544CB8500EAC168 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,17 +119,21 @@
 		330D863A253BCF9C000DB61A /* Expense Test */ = {
 			isa = PBXGroup;
 			children = (
+				33B8F5DE2544C99200EAC168 /* Catagory Objects */,
 				330D867E253BE536000DB61A /* Resources */,
 				330D8679253BE228000DB61A /* Models */,
 				330D863B253BCF9C000DB61A /* AppDelegate.swift */,
 				330D863D253BCF9C000DB61A /* SceneDelegate.swift */,
-				330D868D253BF694000DB61A /* ExpenseDetail.swift */,
-				330D868F253BF6C8000DB61A /* ExpenseList.swift */,
-				330D8691253BF700000DB61A /* ExpenseRow.swift */,
 				330D8641253BCF9E000DB61A /* Assets.xcassets */,
 				330D8646253BCF9E000DB61A /* LaunchScreen.storyboard */,
 				330D8649253BCF9E000DB61A /* Info.plist */,
 				330D8643253BCF9E000DB61A /* Preview Content */,
+				33B8F5D42544C94400EAC168 /* HomeView.swift */,
+				33B8F6012544CB8500EAC168 /* CategoryView.swift */,
+				33B8F5E52544CA8800EAC168 /* AddExpenseView.swift */,
+				33B8F5F22544CAB700EAC168 /* ChartView.swift */,
+				33B8F5F72544CAD800EAC168 /* ProfileView.swift */,
+				33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */,
 			);
 			path = "Expense Test";
 			sourceTree = "<group>";
@@ -165,6 +179,15 @@
 				330D867F253BE58F000DB61A /* expenseData.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		33B8F5DE2544C99200EAC168 /* Catagory Objects */ = {
+			isa = PBXGroup;
+			children = (
+				330D868D253BF694000DB61A /* ExpenseDetail.swift */,
+				330D8691253BF700000DB61A /* ExpenseRow.swift */,
+			);
+			path = "Catagory Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,11 +322,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				330D8690253BF6C8000DB61A /* ExpenseList.swift in Sources */,
+				33B8F5D52544C94400EAC168 /* HomeView.swift in Sources */,
 				330D868E253BF694000DB61A /* ExpenseDetail.swift in Sources */,
+				33B8F5F82544CAD800EAC168 /* ProfileView.swift in Sources */,
 				330D8692253BF700000DB61A /* ExpenseRow.swift in Sources */,
+				33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */,
 				330D863C253BCF9C000DB61A /* AppDelegate.swift in Sources */,
+				33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */,
 				330D867D253BE471000DB61A /* Data.swift in Sources */,
+				33B8F5F32544CAB700EAC168 /* ChartView.swift in Sources */,
+				33B8F5E62544CA8800EAC168 /* AddExpenseView.swift in Sources */,
 				330D863E253BCF9C000DB61A /* SceneDelegate.swift in Sources */,
 				330D867B253BE248000DB61A /* Expense.swift in Sources */,
 			);
