@@ -26,6 +26,7 @@
 		33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */; };
 		33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F6012544CB8500EAC168 /* CategoryView.swift */; };
 		33B8F6102544D2C600EAC168 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F60F2544D2C600EAC168 /* Title.swift */; };
+		B723A1122547713A009E15E0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B723A1112547713A009E15E0 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		33B8F6012544CB8500EAC168 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		33B8F60F2544D2C600EAC168 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		B723A1112547713A009E15E0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				33B8F5F72544CAD800EAC168 /* ProfileView.swift */,
 				33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */,
 				33B8F60F2544D2C600EAC168 /* Title.swift */,
+				B723A1112547713A009E15E0 /* ImagePicker.swift */,
 			);
 			path = "Expense Test";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				330D867D253BE471000DB61A /* Data.swift in Sources */,
 				33B8F5F32544CAB700EAC168 /* ChartView.swift in Sources */,
 				33B8F5E62544CA8800EAC168 /* AddExpenseView.swift in Sources */,
+				B723A1122547713A009E15E0 /* ImagePicker.swift in Sources */,
 				330D863E253BCF9C000DB61A /* SceneDelegate.swift in Sources */,
 				330D867B253BE248000DB61A /* Expense.swift in Sources */,
 			);
