@@ -25,6 +25,7 @@
 		33B8F5F82544CAD800EAC168 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5F72544CAD800EAC168 /* ProfileView.swift */; };
 		33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */; };
 		33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F6012544CB8500EAC168 /* CategoryView.swift */; };
+		33B8F6102544D2C600EAC168 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F60F2544D2C600EAC168 /* Title.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		33B8F5F72544CAD800EAC168 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		33B8F6012544CB8500EAC168 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		33B8F60F2544D2C600EAC168 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				33B8F5F22544CAB700EAC168 /* ChartView.swift */,
 				33B8F5F72544CAD800EAC168 /* ProfileView.swift */,
 				33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */,
+				33B8F60F2544D2C600EAC168 /* Title.swift */,
 			);
 			path = "Expense Test";
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */,
 				330D863C253BCF9C000DB61A /* AppDelegate.swift in Sources */,
 				33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */,
+				33B8F6102544D2C600EAC168 /* Title.swift in Sources */,
 				330D867D253BE471000DB61A /* Data.swift in Sources */,
 				33B8F5F32544CAB700EAC168 /* ChartView.swift in Sources */,
 				33B8F5E62544CA8800EAC168 /* AddExpenseView.swift in Sources */,
