@@ -12,19 +12,25 @@ struct ProfileView: View {
     
     @State private var showSheet:Bool = false
     @State private var showImagePicker: Bool = false
-    @State private var sourceType: UIImagePickerController.SourceType = .camera
-    
-    @State private var image: UIImage?
+    @State private var image: Image?
+    @State private var inputImage: UIImage?
+   
     
     
     var body: some View {
         NavigationView{
             
             VStack{
-                
-                Image(uiImage: ((image ?? UIImage(named: "camera-icon"))!))
+                if (image == nil) {
+                    Image(uiImage: (UIImage(named: "camera-icon"))!)
+                                        .resizable()
+                                        .frame(width: 120, height: 120)
+                } else {
+                    image?
                     .resizable()
-                    .frame(width: 120, height: 120)
+                    .scaledToFit()
+                }
+                
                 
                 Button("choose picture"){
                     self.showSheet = true
@@ -34,12 +40,11 @@ struct ProfileView: View {
                     ActionSheet(title: Text("Select Photo"), message: Text("choose"), buttons: [.default(Text("Photo Library")){
                         
                         self.showImagePicker = true
-                        self.sourceType = .photoLibrary
                     },
                     .default(Text("Camera")){
                         
                         self.showImagePicker = true
-                        self.sourceType = .camera
+                        
                     },
                     .cancel()
                     ])
@@ -48,11 +53,21 @@ struct ProfileView: View {
             }
             
             .navigationBarTitle("MyProfile")
-            }.sheet(isPresented: $showImagePicker) {
-                ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType: self.sourceType)
+            }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
+                ImagePicker(image: self.$inputImage)
             }
+            
     }
+        
+        }
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
+        
+        
 }
+    
+    
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {

@@ -19,6 +19,7 @@
 		330D8680253BE58F000DB61A /* expenseData.json in Resources */ = {isa = PBXBuildFile; fileRef = 330D867F253BE58F000DB61A /* expenseData.json */; };
 		330D868E253BF694000DB61A /* ExpenseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D868D253BF694000DB61A /* ExpenseDetail.swift */; };
 		330D8692253BF700000DB61A /* ExpenseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D8691253BF700000DB61A /* ExpenseRow.swift */; };
+		332883E525478BEF00DCADCE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332883E425478BEF00DCADCE /* ImagePicker.swift */; };
 		33B8F5D52544C94400EAC168 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5D42544C94400EAC168 /* HomeView.swift */; };
 		33B8F5E62544CA8800EAC168 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5E52544CA8800EAC168 /* AddExpenseView.swift */; };
 		33B8F5F32544CAB700EAC168 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5F22544CAB700EAC168 /* ChartView.swift */; };
@@ -26,7 +27,6 @@
 		33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */; };
 		33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F6012544CB8500EAC168 /* CategoryView.swift */; };
 		33B8F6102544D2C600EAC168 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F60F2544D2C600EAC168 /* Title.swift */; };
-		B723A1122547713A009E15E0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B723A1112547713A009E15E0 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +65,7 @@
 		330D867F253BE58F000DB61A /* expenseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = expenseData.json; sourceTree = "<group>"; };
 		330D868D253BF694000DB61A /* ExpenseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetail.swift; sourceTree = "<group>"; };
 		330D8691253BF700000DB61A /* ExpenseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRow.swift; sourceTree = "<group>"; };
+		332883E425478BEF00DCADCE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		33B8F5D42544C94400EAC168 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		33B8F5E52544CA8800EAC168 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		33B8F5F22544CAB700EAC168 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		33B8F6012544CB8500EAC168 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		33B8F60F2544D2C600EAC168 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
-		B723A1112547713A009E15E0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +139,7 @@
 				33B8F5F72544CAD800EAC168 /* ProfileView.swift */,
 				33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */,
 				33B8F60F2544D2C600EAC168 /* Title.swift */,
-				B723A1112547713A009E15E0 /* ImagePicker.swift */,
+				332883E425478BEF00DCADCE /* ImagePicker.swift */,
 			);
 			path = "Expense Test";
 			sourceTree = "<group>";
@@ -331,6 +331,7 @@
 				33B8F5D52544C94400EAC168 /* HomeView.swift in Sources */,
 				330D868E253BF694000DB61A /* ExpenseDetail.swift in Sources */,
 				33B8F5F82544CAD800EAC168 /* ProfileView.swift in Sources */,
+				332883E525478BEF00DCADCE /* ImagePicker.swift in Sources */,
 				330D8692253BF700000DB61A /* ExpenseRow.swift in Sources */,
 				33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */,
 				330D863C253BCF9C000DB61A /* AppDelegate.swift in Sources */,
@@ -339,7 +340,6 @@
 				330D867D253BE471000DB61A /* Data.swift in Sources */,
 				33B8F5F32544CAB700EAC168 /* ChartView.swift in Sources */,
 				33B8F5E62544CA8800EAC168 /* AddExpenseView.swift in Sources */,
-				B723A1122547713A009E15E0 /* ImagePicker.swift in Sources */,
 				330D863E253BCF9C000DB61A /* SceneDelegate.swift in Sources */,
 				330D867B253BE248000DB61A /* Expense.swift in Sources */,
 			);
