@@ -13,10 +13,22 @@ struct ExpenseRow: View {
     var body: some View {
         HStack {
             
-            Text(expense.description)
+           
+            
+            VStack {
+                Text(expense.description)
+                Text(String(expense.category.rawValue)
+                        )
+                    .font(.footnote)
+                .foregroundColor(Color.gray)
+                
+                    
+                
+            }
             Spacer()
             Text("$" + String(expense.amount))
                 .foregroundColor(!expense.income ? Color.red: Color.green)
+            
             
         }
     }
