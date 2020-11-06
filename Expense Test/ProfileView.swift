@@ -14,6 +14,8 @@ struct ProfileView: View {
     @State private var showImagePicker: Bool = false
     @State private var image: Image?
     @State private var inputImage: UIImage?
+    @State var username: String = ""
+    @State var income: String = ""
    
     
     
@@ -21,10 +23,25 @@ struct ProfileView: View {
         NavigationView{
             
             VStack{
+                
+                Text("Name")
+                    .font(.callout)
+                    .bold()
+                
+                TextField("Enter your name", text: $username)
+                    .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
+                    
+                Text("Income")
+                    .font(.callout)
+                    .bold()
+                
+                TextField("Enter your income", text: $income)
+                    .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
+                
                 if (image == nil) {
                     Image(uiImage: (UIImage(named: "camera-icon"))!)
-                                        .resizable()
-                                        .frame(width: 120, height: 120)
+                                        
+                                        .frame(width: 20, height: 100)
                 } else {
                     image?
                     .resizable()
@@ -52,7 +69,7 @@ struct ProfileView: View {
                 
             }
             
-            .navigationBarTitle("MyProfile")
+            .navigationBarTitle("\(username)'s Profile")
             }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }
