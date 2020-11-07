@@ -9,8 +9,34 @@
 import SwiftUI
 
 struct AddExpenseView: View {
+    // variables connected to the text field boxes
+    @State private var descr = ""
+    @State private var amount = "0.00"
+    @State private var income = false
+    
+    @EnvironmentObject var expenses: Expenses // the expense list object
+
     var body: some View {
-        Text("Hello, Expense!")
+        VStack {
+            TextField("Enter description", text: $descr)
+            TextField("Enter amount", text: $amount)
+                .keyboardType(.decimalPad)
+            
+            Toggle(isOn: $income) {
+                Text("Is this income?")
+            }
+            Button(action: {
+                expenses.addExpense(description: descr, amount: (amount as NSString).doubleValue, income: income, category: .groceries)
+                
+            }
+            
+            ) {
+                Text("Add Expense")
+            }
+        }
+        
+        
+        
     }
 }
 
