@@ -16,6 +16,7 @@ struct NavigationTabs: View {
 //    CatagoryView line 15 to see how it is used.
     
     var expenses = Expenses()
+    var user = User(name: "Bethany")
     
     var body: some View {
         ZStack {
@@ -51,6 +52,7 @@ struct NavigationTabs: View {
                     }
             }
             .environmentObject(expenses)
+            .environmentObject(user)
             if showTitle {
                 Title()
                     .onAppear {
