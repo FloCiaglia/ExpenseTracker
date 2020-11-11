@@ -21,13 +21,12 @@ struct CategoryView: View {
         return cat
     }
     
-    // filter expenses based on catagory selected
-    var filteredExpenses: [Expense] {
+    // computed property filter expenses based on catagory selected
+    private var filteredExpenses: [Expense] {
         if (categories[categorySelectionIndex] == "All") {
             return expenses.allExpenses
         }
         else {
-            
             return expenses.allExpenses.filter { $0.category.rawValue == categories[categorySelectionIndex] }
         }
     }
