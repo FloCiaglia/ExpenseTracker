@@ -57,7 +57,7 @@ class Expenses: ObservableObject {
         self.allExpenses = []
         
 //        This is a test initialization of the list for testing.. eventually the data would be read on init()
-        self.allExpenses.append(Expense(id: 27, description: "Winco", amount: 20.22, income: false, category: Expense.Category.groceries))
+//        self.allExpenses.append(Expense(id: 27, description: "Winco", amount: 20.22, income: false, category: Expense.Category.groceries))
         
         
         
