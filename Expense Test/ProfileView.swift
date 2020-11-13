@@ -14,31 +14,18 @@ struct ProfileView: View {
     @State private var showImagePicker: Bool = false
     @State private var image: Image?
     @State private var inputImage: UIImage?
-    @State private var username: String = "Flo"
-    @State private var income: String = "$3000"
+    @State private var username: String = ""
+    @State private var income: String = "$"
+    
    
     
     
     var body: some View {
-        Text("Hello!!")
+        
         NavigationView{
 
             VStack{
                 
-                Text("Name")
-                    .font(.callout)
-                    .bold()
-
-                TextField("Enter your name", text: $username)
-                    .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
-
-                Text("Income")
-                    .font(.callout)
-                    .bold()
-
-                TextField("Enter your income", text: $income)
-                    .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
-
                 if (image == nil) {
                     Image(uiImage: (UIImage(named: "camera-icon"))!)
 
@@ -66,33 +53,92 @@ struct ProfileView: View {
                     },
                     .cancel()
                     ])
+                }
+                
+               
+                
+                Text("Name")
+                    .font(.callout)
+                    .bold()
 
+                TextField("Enter your name", text: $username)
+                    .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
+               
 
-            }
+                Text("Income")
+                    .font(.callout)
+                    .bold()
 
+                TextField("Enter your income", text: $income)
+                    .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
+                
+                RoundedButton().padding(.top, 50)
+
+                
+                
+            
             .navigationBarTitle("\(username)'s Profile")
             }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }
-
+            
+            
+            
+            
+            
     }
-
-        }
-    func loadImage() {
-        guard let inputImage = inputImage else { return }
-        image = Image(uiImage: inputImage)
+        
 
 
 }
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
+        
+    }
 
 
 
+
+
+
+    
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
     }
 }
 
+
+
+    
+struct RoundedButton : View {
+    @State var save = false
+    
+    var body: some View {
+        Button(action: {
+            self.save.toggle()
+            
+        }) {
+            HStack {
+                Spacer()
+                Text("Save")
+                    .frame(minWidth: 0, maxWidth: 100, maxHeight: 0)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]) , startPoint: .leading, endPoint: .trailing))
+                    .cornerRadius(20)
+                    .font(.body)
+                Spacer()
+            }
+        }
+        
+    }
+}
+    
+    
+    
 struct ContentView: View {
     var body: some View {
         Image("fall-leaves")
