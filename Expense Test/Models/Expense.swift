@@ -57,7 +57,35 @@ class Expenses: ObservableObject {
         
 //        This is a test initialization of the list for testing.. eventually the data would be read on init()
         self.allExpenses.append(Expense(id: 27, description: "Winco", amount: 20.22, income: false, category: Expense.Category.groceries))
+        
+        
+        
+        
     }
+    
+    // This method writes to the json file
+//    func writeToFile(location: URL)
+//    {
+//        do{
+//            let encoder = JSONEncoder()
+//            encoder.outputFormatting = .prettyPrinted
+//            let JsonData = try encoder.encode(self.allExpenses)
+//            try JsonData.write(to: location)
+//        }catch
+//        {
+//                fatalError("Could'nt write to file:\n\(error)")
+//        }
+//    }
+    
+    //func setupSaveButton()
+    //{
+        // we need a save button. When this button is clicked - it calls tappedSaveBtn()
+    //}
+    
+    //@objc func tappedSaveBtn() // this method does the storing
+    //{
+        // Need the name of the "textbox"
+    //}
 }
 
 
