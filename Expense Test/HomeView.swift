@@ -22,14 +22,25 @@ struct HomeView: View {
             
             Text("We are 24 hours open to the service.").font(.subheadline).position(x: 155.0, y: 60)
             
-            Text("We are 24 hours open to the service.").font(.subheadline).multilineTextAlignment(.leading).frame(width: 100.0).position(x: 100, y: 140)
+            Text("You have a total of -- categories").font(.subheadline).multilineTextAlignment(.leading).frame(width: 108.0).position(x: 100, y: 140).foregroundColor(.white).opacity(0.7)
+            
+            Image("icons8-money_bag").resizable().frame(width: 100.0, height: 100.0).position(x: 220.0, y: 140)
+            
+            
+            Text(" Income").font(.headline).position(x: 85.0, y: 250)
+            
+            
+            Text("Expense").font(.headline).position(x: 200.0, y: 300).position(x: 190, y: 225.0)
+            
+            Rectangle()
+                .fill(Color.black)
+                .frame(width: 2, height: 100).position(x:160, y: 290)
             
         }
         
-       
-     
         
     }
+
 }
 
 struct HomeView_Previews: PreviewProvider {
