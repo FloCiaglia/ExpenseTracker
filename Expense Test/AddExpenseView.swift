@@ -75,7 +75,10 @@ struct AddExpenseView: View {
                             expenses.addExpense(description: descr, amount: (amount as NSString).doubleValue, income: income, category: category)
                             descr = ""
                             amount = ""
-                            income = false})
+                            income = false
+//                            expenses.writeToFile(location: "expenseData.json")
+                            
+                        })
                 {
                     Text("Add Expense").font(.title).fontWeight(.heavy).foregroundColor(.white).bold()
                 }

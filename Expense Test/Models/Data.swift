@@ -8,8 +8,8 @@ Helpers for loading images and data.
 import UIKit
 import SwiftUI
 
-
-let expenseData: [Expense] = load("expenseData.json")
+// var used for previews only. 
+var expenseData: [Expense] = load("expenseData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

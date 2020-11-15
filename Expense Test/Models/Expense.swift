@@ -40,6 +40,10 @@ class Expense: Identifiable, Codable {
         self.category = cat
         
     }
+    
+    func changeDesc(Description des: String) {
+        self.description = des
+    }
 }
 
 
@@ -54,12 +58,10 @@ class Expenses: ObservableObject {
     @Published var allExpenses: [Expense]
 
     init() {
-        self.allExpenses = []
+        self.allExpenses = load("expenseData.json")
+        
         
 //        This is a test initialization of the list for testing.. eventually the data would be read on init()
-//        self.allExpenses.append(Expense(id: 27, description: "Winco", amount: 20.22, income: false, category: Expense.Category.groceries))
-        
-        
         
         self.allExpenses.append(Expense(id: "27", description: "Winco", amount: 20.22, income: false, category: Expense.Category.groceries))
         self.allExpenses.append(Expense(id: "20", description: "Homegroup", amount: 87.54, income: false, category: Expense.Category.rent))
@@ -69,21 +71,25 @@ class Expenses: ObservableObject {
         var newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, income: inc, category: cat)
         self.allExpenses.append(newExpense)
         
+        // TODO: add write function here
+        
     }
     
+    
+    
     // This method writes to the json file
-//    func writeToFile(location: URL)
-//    {
-//        do{
-//            let encoder = JSONEncoder()
-//            encoder.outputFormatting = .prettyPrinted
-//            let JsonData = try encoder.encode(self.allExpenses)
-//            try JsonData.write(to: location)
-//        }catch
-//        {
-//                fatalError("Could'nt write to file:\n\(error)")
-//        }
-//    }
+    func writeToFile(location: URL)
+    {
+        do{
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let JsonData = try encoder.encode(self.allExpenses)
+            try JsonData.write(to: location)
+        }catch
+        {
+                fatalError("Could'nt write to file:\n\(error)")
+        }
+    }
     
     //func setupSaveButton()
     //{
@@ -94,6 +100,23 @@ class Expenses: ObservableObject {
     //{
         // Need the name of the "textbox"
     //}
+    
+    func deleteExpense(at exp: Expense) {
+        var found = false
+        var i = 0
+        
+        while(found == false && i < self.allExpenses.count) {
+            if (exp.id == self.allExpenses[i].id) {
+                self.allExpenses.remove(at: i)
+                found = true
+            }
+            i+=1
+        }
+        
+            // TODO: add write function here
+    
+
+}
 }
 
 
@@ -105,3 +128,4 @@ struct Expense_Previews: PreviewProvider {
         /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
+

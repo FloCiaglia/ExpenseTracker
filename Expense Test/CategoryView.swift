@@ -40,18 +40,32 @@ struct CategoryView: View {
                             ForEach(0 ..< categories.count) {
                                 Text(self.categories[$0])
                             }
+                            
                         }
                         
                     }
-                    List(filteredExpenses, id: \.id) { expense in
+                    List {
+                        ForEach(filteredExpenses, id: \.id) {
+                        expense in
                         NavigationLink(destination: ExpenseDetail(expense: expense)) {
                             ExpenseRow(expense: expense)
                         }
+                        }.onDelete(perform: { expense in
+                            let exp = filteredExpenses[expense.first!]
+                            expenses.deleteExpense(at: exp)
+                        })
+                        
+                        
                     }
                 }
             }
         }
-    }}
+    }
+   
+    
+}
+
+
 
 
 struct CategoryView_Previews: PreviewProvider {
