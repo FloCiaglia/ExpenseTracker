@@ -37,7 +37,7 @@ struct AddExpenseView: View {
             {
                 Form
                 {
-                    Section(header: Text("Expense Type").bold().foregroundColor(.green))
+                    Section(header: Text("Expense Type").bold().foregroundColor(Color("custGreen")))
                     {
                         Picker(selection: $categorySelectionIndex, label: Text("Selected Catagory"))
                         {
@@ -48,18 +48,18 @@ struct AddExpenseView: View {
                         }
                     }
                     
-                    Section(header: Text("Expense Description").bold().foregroundColor(.green))
+                    Section(header: Text("Expense Description").bold().foregroundColor(Color("custGreen")))
                     {
                         TextField("Enter Description", text: $descr).textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     
-                    Section(header: Text("Expense Amount").bold().foregroundColor(.green))
+                    Section(header: Text("Expense Amount").bold().foregroundColor(Color("custGreen")))
                     {
                         TextField("Enter Amount", text: $amount).textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.decimalPad)
                     }
                     
-                    Section(header: Text("Amount Entered is Income").bold().foregroundColor(.green))
+                    Section(header: Text("Amount Entered is Income").bold().foregroundColor(Color("custGreen")))
                     {
                         Toggle(isOn: $income)
                         {
@@ -79,7 +79,7 @@ struct AddExpenseView: View {
                 {
                     Text("Add Expense").font(.title).fontWeight(.heavy).foregroundColor(.white).bold()
                 }
-                .frame(width: 320, height: 60).background(Color(red: 0, green: 105, blue: 0))
+                .frame(width: 320, height: 60).background(Color("custGreen"))
             }
         }
     }

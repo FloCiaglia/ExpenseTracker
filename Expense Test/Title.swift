@@ -8,19 +8,23 @@
 
 import SwiftUI
 
-struct Title: View {
-    var body: some View {
-        Text("Expense Tracker")
-            .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
-            .fontWeight(.heavy)
-            .foregroundColor(Color.white)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(UIColor(hue: 226.7, saturation: 0.278, brightness: 0.19, alpha: 1)))
+struct Title: View
+{
+    var body: some View
+    {
+        VStack(alignment: .center)
+        {
+            Image("appLogo").resizable().frame(width: 100.0, height: 100.0)
+            Text("Expense Tracker").font(.largeTitle).fontWeight(.heavy).foregroundColor(.white)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(LinearGradient(gradient: Gradient(colors: [.blue, Color("custGreen")]), startPoint: .top, endPoint: .bottom)).edgesIgnoringSafeArea(.all)
     }
 }
 
-struct Title_Previews: PreviewProvider {
-    static var previews: some View {
+struct Title_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
         Title()
     }
 }
