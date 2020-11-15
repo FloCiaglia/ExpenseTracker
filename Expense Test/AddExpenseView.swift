@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct AddExpenseView: View {
+    init(){
+        UITableView.appearance().backgroundColor = .clear // Clears the light gray background color in the form below
+    }
+    
     @State private var categorySelectionIndex = 0
     private var categories: Array<String> {
         return (Expense.Category.allCases.map { $0.rawValue })
@@ -24,48 +28,60 @@ struct AddExpenseView: View {
     }
     
     @EnvironmentObject var expenses: Expenses // the expense list object
-
-    var body: some View {
-        NavigationView {
-        VStack {
-            Form {
-                
-                    
-                    Picker(selection: $categorySelectionIndex, label: Text("Selected Catagory")) {
-                        ForEach(0 ..< categories.count) {
-                            Text(self.categories[$0])
+    
+    var body: some View
+    {
+        NavigationView
+        {
+            VStack
+            {
+                Form
+                {
+                    Section(header: Text("Expense Type").bold().foregroundColor(.green))
+                    {
+                        Picker(selection: $categorySelectionIndex, label: Text("Selected Catagory"))
+                        {
+                            ForEach(0 ..< categories.count)
+                            {
+                                Text(self.categories[$0])
+                            }
                         }
                     }
                     
+                    Section(header: Text("Expense Description").bold().foregroundColor(.green))
+                    {
+                        TextField("Enter Description", text: $descr).textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    
+                    Section(header: Text("Expense Amount").bold().foregroundColor(.green))
+                    {
+                        TextField("Enter Amount", text: $amount).textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.decimalPad)
+                    }
+                    
+                    Section(header: Text("Amount Entered is Income").bold().foregroundColor(.green))
+                    {
+                        Toggle(isOn: $income)
+                        {
+                            Text("Enabled")
+                            
+                        }
+                    }
+                }.navigationBarTitle("Enter Expense!")
                 
-                TextField("Enter description", text: $descr)
-                TextField("Enter amount", text: $amount)
-                    .keyboardType(.decimalPad)
- 
-                Toggle(isOn: $income) {
-                    Text("Is this income?")
-                        
+                
+                Button(action:
+                        {
+                            expenses.addExpense(description: descr, amount: (amount as NSString).doubleValue, income: income, category: category)
+                            descr = ""
+                            amount = ""
+                            income = false})
+                {
+                    Text("Add Expense").font(.title).fontWeight(.heavy).foregroundColor(.white).bold()
                 }
+                .frame(width: 320, height: 60).background(Color(red: 0, green: 105, blue: 0))
             }
-
-            
-            Button(action: {
-                expenses.addExpense(description: descr, amount: (amount as NSString).doubleValue, income: income, category: category)
-                descr = ""
-                amount = ""
-                income = false
-                
-                
-            }
-            
-            ) {
-                Text("Add Expense")
-            }
-            .frame(width: 100, height: 50)
-        }}
-        
-        
-        
+        }
     }
 }
 
