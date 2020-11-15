@@ -10,7 +10,11 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text("Hello, Home!")
+        ZStack {
+            commonStyle()
+            Text("Welcome Friend").font(.headline).position(x: 100.0, y: 50.0)
+        }
+        
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F856A6C255F524B00A28EBF /* commorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F856A6B255F524B00A28EBF /* commorStyle.swift */; };
 		330D863C253BCF9C000DB61A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D863B253BCF9C000DB61A /* AppDelegate.swift */; };
 		330D863E253BCF9C000DB61A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D863D253BCF9C000DB61A /* SceneDelegate.swift */; };
 		330D8642253BCF9E000DB61A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330D8641253BCF9E000DB61A /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F856A6B255F524B00A28EBF /* commorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commorStyle.swift; sourceTree = "<group>"; };
 		330D8638253BCF9C000DB61A /* Expense Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		330D863B253BCF9C000DB61A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		330D863D253BCF9C000DB61A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				33B8F6012544CB8500EAC168 /* CategoryView.swift */,
 				33B8F5E52544CA8800EAC168 /* AddExpenseView.swift */,
 				33B8F5F22544CAB700EAC168 /* ChartView.swift */,
+				2F856A6B255F524B00A28EBF /* commorStyle.swift */,
 				33B8F5F72544CAD800EAC168 /* ProfileView.swift */,
 				33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */,
 				33B8F60F2544D2C600EAC168 /* Title.swift */,
@@ -341,6 +344,7 @@
 				33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */,
 				33639C9025530714005A5355 /* User.swift in Sources */,
 				33B8F6102544D2C600EAC168 /* Title.swift in Sources */,
+				2F856A6C255F524B00A28EBF /* commorStyle.swift in Sources */,
 				330D867D253BE471000DB61A /* Data.swift in Sources */,
 				33B8F5F32544CAB700EAC168 /* ChartView.swift in Sources */,
 				33B8F5E62544CA8800EAC168 /* AddExpenseView.swift in Sources */,
@@ -442,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -496,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
