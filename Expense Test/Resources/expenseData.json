@@ -4,28 +4,32 @@
     "category": "Groceries",
     "id": "1001",
     "amount": 84.91,
-    "income": false
+    "income": false,
+    "date": 568011600000
 },
 {
     "description": "Winco",
     "category": "Groceries",
     "id": "1002",
     "amount": 84.91,
-    "income": false
+    "income": false,
+    "date": 568011600000
 },
 {
     "description": "HPE",
     "category": "Income",
     "id": "1003",
     "amount": 84.91,
-    "income": true
+    "income": true,
+    "date": 568011600000
 },
 {
     "description": "Winco",
     "category": "Groceries",
     "id": "1004",
     "amount": 84.91,
-    "income": false
+    "income": false,
+    "date": 568011600000
 }
 ]
 

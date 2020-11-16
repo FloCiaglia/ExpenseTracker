@@ -20,6 +20,7 @@ class Expense: Identifiable, Codable {
     //var date: Date
     var amount: Double
     var income: Bool
+    var date: Date
     var category: Category
 
 
@@ -32,12 +33,13 @@ class Expense: Identifiable, Codable {
         
         
     }
-    init(id exp_id: String, description desc: String, amount ex_am: Double, income inc: Bool, category cat: Category) {
+    init(id exp_id: String, description desc: String, amount ex_am: Double, income inc: Bool, date d: Date, category cat: Category) {
         self.id = exp_id
         self.description = desc
         self.amount = ex_am
         self.income = inc
         self.category = cat
+        self.date = d
         
     }
     
@@ -63,12 +65,10 @@ class Expenses: ObservableObject {
         
 //        This is a test initialization of the list for testing.. eventually the data would be read on init()
         
-        self.allExpenses.append(Expense(id: "27", description: "Winco", amount: 20.22, income: false, category: Expense.Category.groceries))
-        self.allExpenses.append(Expense(id: "20", description: "Homegroup", amount: 87.54, income: false, category: Expense.Category.rent))
     }
     
-    func addExpense(description desc: String, amount ex_am: Double, income inc: Bool, category cat: Expense.Category) {
-        var newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, income: inc, category: cat)
+    func addExpense(description desc: String, amount ex_am: Double, income inc: Bool, date d: Date, category cat: Expense.Category) {
+        var newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, income: inc, date: d, category: cat)
         self.allExpenses.append(newExpense)
         
         // TODO: add write function here

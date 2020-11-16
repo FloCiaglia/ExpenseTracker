@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ExpenseRow: View {
     var expense: Expense
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }
 
     var body: some View {
         HStack {
@@ -17,6 +22,9 @@ struct ExpenseRow: View {
             
             VStack {
                 Text(expense.description)
+                Text("\(expense.date, formatter: dateFormatter)")
+                    .font(.footnote)
+                .foregroundColor(Color.gray)
                 Text(String(expense.category.rawValue)
                         )
                     .font(.footnote)

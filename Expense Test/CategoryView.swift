@@ -21,6 +21,8 @@ struct CategoryView: View {
         return cat
     }
     
+   
+    
     // computed property filter expenses based on catagory selected
     private var filteredExpenses: [Expense] {
         if (categories[categorySelectionIndex] == "All") {

@@ -13,6 +13,8 @@ struct AddExpenseView: View {
         UITableView.appearance().backgroundColor = .clear // Clears the light gray background color in the form below
     }
     
+
+    
     @State private var categorySelectionIndex = 0
     private var categories: Array<String> {
         return (Expense.Category.allCases.map { $0.rawValue })
@@ -21,6 +23,7 @@ struct AddExpenseView: View {
     @State private var descr = ""
     @State private var amount = ""
     @State private var income = false
+    @State private var date = Date()
     
     private var category: Expense.Category {
         let cat: Expense.Category? = Expense.Category(rawValue: categories[categorySelectionIndex])
@@ -35,6 +38,7 @@ struct AddExpenseView: View {
         {
             VStack
             {
+                
                 Form
                 {
                     Section(header: Text("Expense Type").bold().foregroundColor(Color("custGreen")))
@@ -67,22 +71,28 @@ struct AddExpenseView: View {
                             
                         }
                     }
+                    DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
+                                    Text("Select a date")
+                                }
+                    
+                    Button(action:
+                            {
+                                expenses.addExpense(description: descr, amount: (amount as NSString).doubleValue, income: income, date: date, category: category)
+                                descr = ""
+                                amount = ""
+                                income = false
+                                print(date)
+    //                            expenses.writeToFile(location: "expenseData.json")
+                                
+                            })
+                    {
+                        Text("Add Expense").font(.title).fontWeight(.heavy).foregroundColor(.white).bold()
+                    }
+                    .frame(width: 320, height: 60).background(Color("custGreen"))
                 }.navigationBarTitle("Enter Expense!")
                 
                 
-                Button(action:
-                        {
-                            expenses.addExpense(description: descr, amount: (amount as NSString).doubleValue, income: income, category: category)
-                            descr = ""
-                            amount = ""
-                            income = false
-//                            expenses.writeToFile(location: "expenseData.json")
-                            
-                        })
-                {
-                    Text("Add Expense").font(.title).fontWeight(.heavy).foregroundColor(.white).bold()
-                }
-                .frame(width: 320, height: 60).background(Color("custGreen"))
+                
             }
         }
     }
