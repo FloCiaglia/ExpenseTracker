@@ -18,7 +18,7 @@ struct ExpenseDetail: View {
                     .font(.title)
 
                 HStack(alignment: .top) {
-                    Text(expense.category.rawValue)
+                    Text(expense.category)
                         .font(.subheadline)
                     Spacer()
                     Text(String(expense.amount))

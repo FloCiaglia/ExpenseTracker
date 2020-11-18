@@ -25,7 +25,7 @@ struct ExpenseRow: View {
                 Text("\(expense.date, formatter: dateFormatter)")
                     .font(.footnote)
                 .foregroundColor(Color.gray)
-                Text(String(expense.category.rawValue)
+                Text(String(expense.category)
                         )
                     .font(.footnote)
                 .foregroundColor(Color.gray)
@@ -35,7 +35,7 @@ struct ExpenseRow: View {
             }
             Spacer()
             Text("$" + String(expense.amount))
-                .foregroundColor(!expense.income ? Color.red: Color.green)
+                .foregroundColor((expense.category != "Income") ? Color.red: Color.green)
             
             
         }

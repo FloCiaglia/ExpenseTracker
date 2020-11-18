@@ -22,9 +22,9 @@ struct AddExpenseView: View {
     @State private var amount = ""
     @State private var date = Date()
     
-    private var category: Expense.Category {
-        let cat: Expense.Category? = Expense.Category(rawValue: expenses.categories[categorySelectionIndex])
-        return cat!
+    private var category: String {
+        return expenses.categories[categorySelectionIndex]
+        
     }
     
     @EnvironmentObject var expenses: Expenses // the expense list object
@@ -44,7 +44,7 @@ struct AddExpenseView: View {
                         {
                             ForEach(0 ..< expenses.categories.count)
                             {
-                                Text($expenses.catagories[$0])
+                                Text(expenses.categories[$0])
                             }
                         }
                     }

@@ -68,7 +68,7 @@ class Expenses: ObservableObject {
         
     }
     
-    func addExpense(description desc: String, amount ex_am: Double, income inc: Bool, date d: Date, category cat: String) {
+    func addExpense(description desc: String, amount ex_am: Double, date d: Date, category cat: String) {
         var newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, date: d, category: cat)
         self.allExpenses.append(newExpense)
         
