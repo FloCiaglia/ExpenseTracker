@@ -19,9 +19,9 @@ class Expense: Identifiable, Codable {
     var description: String
     //var date: Date
     var amount: Double
-    var income: Bool
     var date: Date
-    var category: Category
+    var category: String
+    
 
 
     enum Category: String, CaseIterable, Codable, Hashable {
@@ -33,11 +33,10 @@ class Expense: Identifiable, Codable {
         
         
     }
-    init(id exp_id: String, description desc: String, amount ex_am: Double, income inc: Bool, date d: Date, category cat: Category) {
+    init(id exp_id: String, description desc: String, amount ex_am: Double, date d: Date, category cat: String) {
         self.id = exp_id
         self.description = desc
         self.amount = ex_am
-        self.income = inc
         self.category = cat
         self.date = d
         
@@ -58,17 +57,19 @@ class Expense: Identifiable, Codable {
 
 class Expenses: ObservableObject {
     @Published var allExpenses: [Expense]
+    @Published var categories: [String]
 
     init() {
         self.allExpenses = load("expenseData.json")
+        self.categories = ["Groceries", "Rent", "Utilities", "Income", "Savings"]
         
         
 //        This is a test initialization of the list for testing.. eventually the data would be read on init()
         
     }
     
-    func addExpense(description desc: String, amount ex_am: Double, income inc: Bool, date d: Date, category cat: Expense.Category) {
-        var newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, income: inc, date: d, category: cat)
+    func addExpense(description desc: String, amount ex_am: Double, income inc: Bool, date d: Date, category cat: String) {
+        var newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, date: d, category: cat)
         self.allExpenses.append(newExpense)
         
         // TODO: add write function here

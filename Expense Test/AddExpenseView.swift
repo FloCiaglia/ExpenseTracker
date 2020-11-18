@@ -16,17 +16,14 @@ struct AddExpenseView: View {
 
     
     @State private var categorySelectionIndex = 0
-    private var categories: Array<String> {
-        return (Expense.Category.allCases.map { $0.rawValue })
-    }
+    
     // variables connected to the text field boxes
     @State private var descr = ""
     @State private var amount = ""
-    @State private var income = false
     @State private var date = Date()
     
     private var category: Expense.Category {
-        let cat: Expense.Category? = Expense.Category(rawValue: categories[categorySelectionIndex])
+        let cat: Expense.Category? = Expense.Category(rawValue: expenses.categories[categorySelectionIndex])
         return cat!
     }
     
@@ -45,9 +42,9 @@ struct AddExpenseView: View {
                     {
                         Picker(selection: $categorySelectionIndex, label: Text("Selected Catagory"))
                         {
-                            ForEach(0 ..< categories.count)
+                            ForEach(0 ..< expenses.categories.count)
                             {
-                                Text(self.categories[$0])
+                                Text($expenses.catagories[$0])
                             }
                         }
                     }
@@ -63,24 +60,16 @@ struct AddExpenseView: View {
                             .keyboardType(.decimalPad)
                     }
                     
-                    Section(header: Text("Amount Entered is Income").bold().foregroundColor(Color("custGreen")))
-                    {
-                        Toggle(isOn: $income)
-                        {
-                            Text("Enabled")
-                            
-                        }
-                    }
+                
                     DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
                                     Text("Select a date")
                                 }
                     
                     Button(action:
                             {
-                                expenses.addExpense(description: descr, amount: (amount as NSString).doubleValue, income: income, date: date, category: category)
+                                expenses.addExpense(description: descr, amount: (amount as NSString).doubleValue, date: date, category: category)
                                 descr = ""
                                 amount = ""
-                                income = false
                                 print(date)
     //                            expenses.writeToFile(location: "expenseData.json")
                                 
