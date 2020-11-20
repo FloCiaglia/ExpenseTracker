@@ -17,25 +17,6 @@ struct ProfileView: View {
     @State private var username: String = ""
     @State private var income: String = "$"
     
-//    init() {
-//            // sets background color
-//        UINavigationBar.appearance().backgroundColor = .blue
-//
-//            // sets the text
-//            UINavigationBar.appearance().largeTitleTextAttributes = [
-//                .foregroundColor: UIColor.darkGray,
-//                .font : UIFont(name:"Papyrus", size: 40)!]
-//
-//            //
-//            UINavigationBar.appearance().titleTextAttributes = [
-//                .font : UIFont(name: "HelveticaNeue-Thin", size: 20)!]
-//    }
-    
-//    init() {
-//                let navBarAppearance = UINavigationBar.appearance()
-//        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.yellow]
-//              }
-    
     var body: some View {
         NavigationView{
             VStack{
