@@ -119,10 +119,21 @@ class Expenses: ObservableObject {
         return inc
     }
     
+    
+    
+    func gettotalExpense() -> Double {
+        var exp: Double = 0
+        
+        for expen in allExpenses {
+            if(expen.category != "Income"){
+                exp = exp + expen.amount
+            }
+        }
+        return exp
+    }
+    
+    
 }
-
-
-
 
 
 struct Expense_Previews: PreviewProvider {
