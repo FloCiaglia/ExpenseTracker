@@ -89,6 +89,9 @@ struct AddExpenseView: View {
 
 struct AddExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenseView()
+        Group {
+            AddExpenseView()
+            AddExpenseView()
+        }
     }
 }

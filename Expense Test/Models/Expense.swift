@@ -92,6 +92,8 @@ class Expenses: ObservableObject {
         }
     }
     
+<<<<<<< HEAD
+=======
     //func setupSaveButton()
     //{
     // we need a save button. When this button is clicked - it calls tappedSaveBtn()
@@ -102,6 +104,7 @@ class Expenses: ObservableObject {
     // Need the name of the "textbox"
     //}
     
+>>>>>>> master
     func deleteExpense(at exp: Expense) {
         var found = false
         var i = 0
