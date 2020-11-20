@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var expenses: Expenses
+    
+    
     var body: some View {
         ZStack {
             commonStyle()
@@ -36,6 +39,7 @@ struct HomeView: View {
                 .fill(Color.black)
                 .frame(width: 2, height: 100).position(x:160, y: 290)
             
+            Text(String(expenses.gettotalIncome()))
         }
         
         

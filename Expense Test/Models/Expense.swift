@@ -1,9 +1,9 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-The model for an individual landmark.
-*/
+ See LICENSE folder for this sample’s licensing information.
+ 
+ Abstract:
+ The model for an individual landmark.
+ */
 
 import SwiftUI
 
@@ -22,8 +22,8 @@ class Expense: Identifiable, Codable {
     var date: Date
     var category: String
     
-
-
+    
+    
     enum Category: String, CaseIterable, Codable, Hashable {
         case groceries = "Groceries"
         case rent = "Rent"
@@ -58,13 +58,13 @@ class Expense: Identifiable, Codable {
 class Expenses: ObservableObject {
     @Published var allExpenses: [Expense]
     @Published var categories: [String]
-
+    
     init() {
         self.allExpenses = load("expenseData.json")
         self.categories = ["Groceries", "Rent", "Utilities", "Income", "Savings"]
         
         
-//        This is a test initialization of the list for testing.. eventually the data would be read on init()
+        //        This is a test initialization of the list for testing.. eventually the data would be read on init()
         
     }
     
@@ -88,18 +88,18 @@ class Expenses: ObservableObject {
             try JsonData.write(to: location)
         }catch
         {
-                fatalError("Could'nt write to file:\n\(error)")
+            fatalError("Could'nt write to file:\n\(error)")
         }
     }
     
     //func setupSaveButton()
     //{
-        // we need a save button. When this button is clicked - it calls tappedSaveBtn()
+    // we need a save button. When this button is clicked - it calls tappedSaveBtn()
     //}
     
     //@objc func tappedSaveBtn() // this method does the storing
     //{
-        // Need the name of the "textbox"
+    // Need the name of the "textbox"
     //}
     
     func deleteExpense(at exp: Expense) {
@@ -114,10 +114,19 @@ class Expenses: ObservableObject {
             i+=1
         }
         
-            // TODO: add write function here
+    }
     
-
-}
+    func gettotalIncome() -> Double {
+        var inc: Double = 0
+        
+        for expen in allExpenses {
+            if(expen.category == "Income"){
+                inc = inc + expen.amount
+            }
+        }
+        return inc
+    }
+    
 }
 
 
