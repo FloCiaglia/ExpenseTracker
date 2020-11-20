@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var expenses: Expenses
-    
+   @EnvironmentObject var expenses: Expenses
+
     
     var body: some View {
         ZStack {
@@ -30,18 +30,18 @@ struct HomeView: View {
             Image("icons8-money_bag").resizable().frame(width: 100.0, height: 100.0).position(x: 220.0, y: 140)
             
             
-            Text(" Income").font(.headline).position(x: 85.0, y: 250)
+            Text("Income").font(.headline).position(x: 85.0, y: 250)
             
             
-            Text("Expense").font(.headline).position(x: 200.0, y: 300).position(x: 190, y: 225.0)
+            Text("Expense").font(.headline).position(x: 230.0, y: 250)
             
             Rectangle()
                 .fill(Color.black)
                 .frame(width: 2, height: 100).position(x:160, y: 290)
             
-            Text(String(expenses.gettotalIncome()))
+            Text("$" + String(expenses.gettotalIncome()) + "           $" +  String(expenses.gettotalExpense())).position(x:160, y: 290).font(.title)
+            
         }
-        
         
     }
 
