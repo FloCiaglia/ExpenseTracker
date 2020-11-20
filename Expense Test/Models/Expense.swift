@@ -92,19 +92,19 @@ class Expenses: ObservableObject {
         }
     }
     
-<<<<<<< HEAD
-=======
-    //func setupSaveButton()
-    //{
-    // we need a save button. When this button is clicked - it calls tappedSaveBtn()
-    //}
-    
-    //@objc func tappedSaveBtn() // this method does the storing
-    //{
-    // Need the name of the "textbox"
-    //}
-    
->>>>>>> master
+    //<<<<<<< HEAD
+    //=======
+    //    //func setupSaveButton()
+    //    //{
+    //    // we need a save button. When this button is clicked - it calls tappedSaveBtn()
+    //    //}
+    //
+    //    //@objc func tappedSaveBtn() // this method does the storing
+    //    //{
+    //    // Need the name of the "textbox"
+    //    //}
+    //
+    //>>>>>>> master
     func deleteExpense(at exp: Expense) {
         var found = false
         var i = 0
@@ -143,6 +143,94 @@ class Expenses: ObservableObject {
         return exp
     }
     
+    
+    func getGrandTotal() -> CGFloat {
+        var total: CGFloat = 0
+        for expen in allExpenses {
+            total = total + CGFloat(expen.amount)
+        }
+        return total
+    }
+    
+    //This method organizes expenses and their values
+    func compileExpenseAmt() -> Dictionary<String, Array<Double>>{
+        
+        var categAmmDict = Dictionary<String, Array<Double>>()
+        
+        for expen in allExpenses {
+            
+            //check if the key value is null
+            if (categAmmDict[expen.category] == nil){
+                let ammt: Double = expen.amount
+                var arr: [Double] = []  //values stored for each key in an array
+                arr.append(ammt)
+                categAmmDict[expen.category] = arr
+                
+            }
+            else {
+                let ammt: Double = expen.amount
+                categAmmDict[expen.category]?.append(ammt)
+                
+            }
+            
+        }
+        return categAmmDict
+        
+    }
+    
+    //This method organizes expenses and their sum of values
+    func SummedcompileExpenseAmt(precategAmmDict: Dictionary<String, Array<Double>>) -> Dictionary<String, Double> {
+        
+        let categAmmDict = precategAmmDict
+        var postcategAmmDict: Dictionary<String, Double> = [:]
+        
+        for expen in allExpenses {
+            var ammt: Double = 0;
+            let arr: Array<Double> = categAmmDict[expen.category]!
+            for sum in arr {
+                ammt = ammt + sum
+            }
+            
+            postcategAmmDict[expen.category] = ammt;
+            
+        }
+        
+        return postcategAmmDict
+    }
+    
+    //This method calculates percentage of each category and stores that into the dictionary.
+    func percentageCalculator(dict: Dictionary<String, Double>) -> Dictionary<String, Double>
+    {
+        let preDict = dict
+        var postcategAmmDict: Dictionary<String, Double> = [:]
+        let totalexpen: Double =  Double(getGrandTotal())
+        
+        for expen in allExpenses {
+            var temp: Double  = 0
+            temp = ((preDict[expen.category]!)/totalexpen)*100
+            postcategAmmDict[expen.category] = temp
+            
+        }
+        return postcategAmmDict
+        
+    }
+    
+    //This method helps with calculating degrees for slice.
+    func pieDegreeCalculator(preDegDict: Dictionary<String, Double>) -> Dictionary<String, Double>
+    {
+        let preDict = preDegDict
+        var postDegDict: Dictionary<String, Double> = [:]
+        
+        for expen in allExpenses {
+            postDegDict[expen.category] =  (preDict[expen.category]!/100) * 360
+        }
+        return postDegDict
+    }
+    
+    //This function builds everything from scratch to get from values to degrees. (Its like a combo pack)
+    func completeDictionaryBuilder() -> Dictionary<String, Double>{
+        return pieDegreeCalculator(preDegDict: percentageCalculator( dict: SummedcompileExpenseAmt(precategAmmDict: compileExpenseAmt())))
+    }
     
 }
 
