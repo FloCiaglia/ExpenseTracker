@@ -29,7 +29,7 @@ struct CategoryView: View {
             return expenses.allExpenses
         }
         else {
-            return expenses.allExpenses.filter { $0.category.rawValue == categories[categorySelectionIndex] }
+            return expenses.allExpenses.filter { $0.category == categories[categorySelectionIndex] }
         }
     }
     
