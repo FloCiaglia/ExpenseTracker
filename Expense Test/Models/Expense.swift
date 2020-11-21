@@ -69,18 +69,22 @@ class Expenses: ObservableObject {
     }
     
     func addExpense(description desc: String, amount ex_am: Double, date d: Date, category cat: String) {
-        var newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, date: d, category: cat)
+        let newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, date: d, category: cat)
         self.allExpenses.append(newExpense)
         
-        // TODO: add write function here
+        writeToFile(file: "expenseData.json")
         
     }
     
     
     
     // This method writes to the json file
-    func writeToFile(location: URL)
+    func writeToFile(file: String)
     {
+        guard let location = Bundle.main.url(forResource: file, withExtension: nil)
+            else {
+                fatalError("Couldn't find \(file) in main bundle.")
+        }
         do{
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
@@ -90,7 +94,7 @@ class Expenses: ObservableObject {
         {
             fatalError("Could'nt write to file:\n\(error)")
         }
-    }
+        }
     
     //<<<<<<< HEAD
     //=======
@@ -116,6 +120,7 @@ class Expenses: ObservableObject {
             }
             i+=1
         }
+        writeToFile(file: "expenseData.json")
         
     }
     
@@ -240,4 +245,5 @@ struct Expense_Previews: PreviewProvider {
         /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
+
 
