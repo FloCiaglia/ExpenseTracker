@@ -71,7 +71,7 @@ struct AddExpenseView: View {
                                 descr = ""
                                 amount = ""
                                 print(date)
-    //                            expenses.writeToFile(location: "expenseData.json")
+    //                            
                                 
                             })
                     {
