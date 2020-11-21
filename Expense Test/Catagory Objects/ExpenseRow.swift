@@ -1,9 +1,9 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A single row to be displayed in a list of expenses.
-*/
+ See LICENSE folder for this sample’s licensing information.
+ 
+ Abstract:
+ A single row to be displayed in a list of expenses.
+ */
 
 import SwiftUI
 
@@ -14,23 +14,21 @@ struct ExpenseRow: View {
         formatter.dateStyle = .long
         return formatter
     }
-
+    
     var body: some View {
         HStack {
-            
-           
             
             VStack {
                 Text(expense.description)
                 Text("\(expense.date, formatter: dateFormatter)")
                     .font(.footnote)
-                .foregroundColor(Color.gray)
+                    .foregroundColor(Color.gray)
                 Text(String(expense.category)
-                        )
-                    .font(.footnote)
+                )
+                .font(.footnote)
                 .foregroundColor(Color.gray)
                 
-                    
+                
                 
             }
             Spacer()

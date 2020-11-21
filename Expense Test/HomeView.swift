@@ -39,6 +39,10 @@ struct HomeView: View {
                 .fill(Color.black)
                 .frame(width: 2, height: 100).position(x:160, y: 290)
             
+//            Text("$" + String(expenses.gettotalIncome()))
+//            Spacer()
+//            Text("$" + String(expenses.gettotalIncome()))
+            
             Text("$" + String(expenses.gettotalIncome()) + "           $" +  String(expenses.gettotalExpense())).position(x:160, y: 290).font(.title)
         }
         
