@@ -21,7 +21,7 @@ struct CategoryView: View {
         return cat
     }
     
-   
+    
     
     // computed property filter expenses based on catagory selected
     private var filteredExpenses: [Expense] {
@@ -38,33 +38,28 @@ struct CategoryView: View {
             VStack {
                 Form {
                     Section {
-                        Picker(selection: $categorySelectionIndex, label: Text("Selected Catagory")) {
+                        Picker(selection: $categorySelectionIndex, label: Text("Selected Category").bold()) {
                             ForEach(0 ..< categories.count) {
                                 Text(self.categories[$0])
                             }
-                            
                         }
-                        
-                    }
+                    }.listRowBackground(Color.white)
                     List {
                         ForEach(filteredExpenses, id: \.id) {
-                        expense in
-                        NavigationLink(destination: ExpenseDetail(expense: expense)) {
-                            ExpenseRow(expense: expense)
-                        }
+                            expense in
+                            NavigationLink(destination: ExpenseDetail(expense: expense)) {
+                                ExpenseRow(expense: expense)
+                            }.font(.callout)
                         }.onDelete(perform: { expense in
                             let exp = filteredExpenses[expense.first!]
                             expenses.deleteExpense(at: exp)
                         })
                         
-                        
-                    }
-                }
-            }
+                    }.listRowBackground(Color.white)
+                }.frame(maxWidth: .infinity, maxHeight: .infinity).background(LinearGradient(gradient: Gradient(colors: [.blue, Color("custGreen")]), startPoint: .top, endPoint: .bottom)).edgesIgnoringSafeArea(.all)
+            }.navigationBarTitle("Expense Category!")
         }
     }
-   
-    
 }
 
 
