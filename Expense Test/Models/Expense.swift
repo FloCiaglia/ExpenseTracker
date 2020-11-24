@@ -33,6 +33,7 @@ class Expense: Identifiable, Codable {
         
         
     }
+    
     init(id exp_id: String, description desc: String, amount ex_am: Double, date d: Date, category cat: String) {
         self.id = exp_id
         self.description = desc
@@ -92,7 +93,7 @@ class Expenses: ObservableObject {
             try JsonData.write(to: location)
         }catch
         {
-            fatalError("Could'nt write to file:\n\(error)")
+            fatalError("Couldn't write to file:\n\(error)")
         }
         }
     

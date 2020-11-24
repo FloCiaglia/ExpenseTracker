@@ -30,6 +30,7 @@
 		33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */; };
 		33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F6012544CB8500EAC168 /* CategoryView.swift */; };
 		33B8F6102544D2C600EAC168 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F60F2544D2C600EAC168 /* Title.swift */; };
+		B7DA4A65256D8F2900769969 /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DA4A64256D8F2900769969 /* userData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		33B8F6012544CB8500EAC168 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		33B8F60F2544D2C600EAC168 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		B7DA4A64256D8F2900769969 /* userData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				330D867F253BE58F000DB61A /* expenseData.json */,
+				B7DA4A64256D8F2900769969 /* userData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7DA4A65256D8F2900769969 /* userData.json in Resources */,
 				330D8648253BCF9E000DB61A /* LaunchScreen.storyboard in Resources */,
 				330D8645253BCF9E000DB61A /* Preview Assets.xcassets in Resources */,
 				330D8680253BE58F000DB61A /* expenseData.json in Resources */,
@@ -522,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Expense Test/Preview Content\"";
+				DEVELOPMENT_TEAM = 82834568XV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Expense Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -541,6 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Expense Test/Preview Content\"";
+				DEVELOPMENT_TEAM = 82834568XV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Expense Test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

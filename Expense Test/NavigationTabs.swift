@@ -11,12 +11,15 @@ import SwiftUI
 struct NavigationTabs: View {
     @State private var showTitle = true
     
+    
 //  This is the expenses object all the UI views will be reading from and making changes to.
 //    On line 53 the object is being made available to all this views "children". Check out
 //    CatagoryView line 15 to see how it is used.
     
     var expenses = Expenses()
-    var user = User(name: "Bethany")
+    //name n: String, income money: Double, age year: Int, profession job: Double, gender sex: String)
+    //, age: 32, profession: "Engineer", gender: "Female"
+    var usrs = Users()
     
     var body: some View {
         ZStack {
@@ -52,7 +55,7 @@ struct NavigationTabs: View {
                     }
             }
             .environmentObject(expenses)
-            .environmentObject(user)
+            .environmentObject(usrs)
             if showTitle {
                 Title()
                     .onAppear {

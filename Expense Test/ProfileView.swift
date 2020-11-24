@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct ProfileView: View {
     
     @State private var showSheet:Bool = false
@@ -16,6 +17,12 @@ struct ProfileView: View {
     @State private var inputImage: UIImage?
     @State private var username: String = ""
     @State private var income: String = "$"
+//    @State private var age: Int
+//    @State private var profession: String
+//    @State private var gender: String
+    @EnvironmentObject var users: Users
+    
+    
     
     var body: some View {
         NavigationView{
@@ -64,7 +71,8 @@ struct ProfileView: View {
                 TextField("Enter your income", text: $income)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
                 
-                RoundedButton().padding(.top, 40).navigationBarTitle("\(username)'s Profile").font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
+                
+                RoundedButton(users: Users.self as! Users).padding(.top, 40).navigationBarTitle("\(username)'s Profile").font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
             }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }.frame(maxWidth: .infinity, maxHeight: .infinity).background(LinearGradient(gradient: Gradient(colors: [.blue, Color("custGreen")]), startPoint: .top, endPoint: .bottom)).edgesIgnoringSafeArea(.all)
@@ -77,18 +85,25 @@ struct ProfileView: View {
         
     }
     
+    
+    
     struct ProfileView_Previews: PreviewProvider {
         static var previews: some View {
             ProfileView()
         }
     }
     
+    
     struct RoundedButton : View {
-        @State var save = false
+       
+       @ObservedObject var users: Users
         
         var body: some View {
             Button(action: {
-                self.save.toggle()
+   
+                users.addUser(name: "something", income: "123.32")
+                print("The user has been added to the json file")
+                
                 
             }) {
                 HStack {
@@ -114,3 +129,4 @@ struct ProfileView: View {
         }
     }
 }
+
