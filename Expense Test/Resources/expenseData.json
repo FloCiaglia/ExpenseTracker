@@ -30,6 +30,14 @@
     "amount": 84.91,
     "income": false,
     "date": 568011600000
+},
+{
+    "description": "walmart",
+    "category": "Utilities",
+    "id": "1005",
+    "amount": 200.45,
+    "income": false,
+    "date": 568011600000
 }
 ]
 
