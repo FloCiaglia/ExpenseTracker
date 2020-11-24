@@ -60,10 +60,12 @@ struct AddExpenseView: View {
                             .keyboardType(.decimalPad)
                     }
                     
-                
+                    Section(header: Text("Date of Expense ").bold().foregroundColor(Color("custGreen")))
+                    {
                     DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
                                     Text("Select a date")
                                 }
+                    }
                     
                     Button(action:
                             {
@@ -79,9 +81,6 @@ struct AddExpenseView: View {
                     }
                     .frame(width: 320, height: 60).background(Color("custGreen"))
                 }.navigationBarTitle("Enter Expense!")
-                
-                
-                
             }
         }
     }
