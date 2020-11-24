@@ -125,7 +125,7 @@ class Expenses: ObservableObject {
         
     }
     
-    func gettotalIncome() -> Double {
+    func gettotalIncome() -> String {
         var inc: Double = 0
         
         for expen in allExpenses {
@@ -133,12 +133,12 @@ class Expenses: ObservableObject {
                 inc = inc + expen.amount
             }
         }
-        return inc
+        return numbFormat(num: inc)
     }
     
     
     
-    func gettotalExpense() -> Double {
+    func gettotalExpense() -> String {
         var exp: Double = 0
         
         for expen in allExpenses {
@@ -146,8 +146,16 @@ class Expenses: ObservableObject {
                 exp = exp + expen.amount
             }
         }
-        return exp
+        return numbFormat(num: exp)
     }
+    
+    func numbFormat(num: Double) -> String {
+        
+        let formattedNum = String(format: "%.2f", num)
+        
+        return formattedNum
+    }
+    
     
     
     func getGrandTotal() -> CGFloat {
@@ -213,7 +221,7 @@ class Expenses: ObservableObject {
         
         for expen in allExpenses {
             var temp: Double  = 0
-            temp = ((preDict[expen.category]!)/totalexpen)*100
+            temp = ((preDict[expen.category]!)/totalexpen)
             postcategAmmDict[expen.category] = temp
             
         }
@@ -235,7 +243,7 @@ class Expenses: ObservableObject {
     
     //This function builds everything from scratch to get from values to degrees. (Its like a combo pack)
     func completeDictionaryBuilder() -> Dictionary<String, Double>{
-        return pieDegreeCalculator(preDegDict: percentageCalculator( dict: SummedcompileExpenseAmt(precategAmmDict: compileExpenseAmt())))
+        return percentageCalculator( dict: SummedcompileExpenseAmt(precategAmmDict: compileExpenseAmt()))
     }
     
 }

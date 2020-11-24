@@ -43,7 +43,7 @@ struct HomeView: View {
 //            Spacer()
 //            Text("$" + String(expenses.gettotalIncome()))
             
-            Text("$" + String(expenses.gettotalIncome()) + "           $" +  String(expenses.gettotalExpense())).position(x:160, y: 290).font(.title)
+            Text("$" + expenses.gettotalIncome() + "           $" +  expenses.gettotalExpense()).position(x:160, y: 290).font(.title)
         }
         
     }

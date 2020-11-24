@@ -7,22 +7,31 @@
 //
 
 import SwiftUI
-    
-    struct ChartView: View {
-        @EnvironmentObject var expenses: Expenses
-        var body: some View {
+
+struct ChartView: View {
+    @EnvironmentObject var expenses: Expenses
+    var body: some View {
+        
+        NavigationView
+        {
             ZStack{
-                pieChart()
-            }.environmentObject(expenses)
-           
+                pieChart().position(x: 160.0, y: 240.0)
+                Spacer().frame(height: 90)
+              //  ZStack{
+                //Text("Hello")
+              //  }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity).background(LinearGradient(gradient: Gradient(colors: [.blue, Color("custGreen")]), startPoint: .top, endPoint: .bottom)).edgesIgnoringSafeArea(.all).navigationTitle("Pie Chart")
+            
         }
         
     }
     
-    struct ChartView_Previews: PreviewProvider {
-        static var previews: some View {
-            ChartView()
-        }
+}
+
+struct ChartView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChartView()
     }
+}
 
 

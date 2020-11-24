@@ -61,7 +61,7 @@ struct NavigationTabs: View {
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {self.showTitle.toggle()}
                         
-                        print(expenses.completeDictionaryBuilder())
+                       print(expenses.completeDictionaryBuilder())
             }
                 
             
