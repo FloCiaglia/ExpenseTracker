@@ -71,8 +71,8 @@ struct ProfileView: View {
                 TextField("Enter your income", text: $income)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
                 
-                
-                RoundedButton(users: Users.self as! Users).padding(.top, 40).navigationBarTitle("\(username)'s Profile").font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
+                //we need to add an instantiation before using the instance of the user 
+                RoundedButton(users: self.users).padding(.top, 40).navigationBarTitle("\(username)'s Profile").font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
             }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }.frame(maxWidth: .infinity, maxHeight: .infinity).background(LinearGradient(gradient: Gradient(colors: [.blue, Color("custGreen")]), startPoint: .top, endPoint: .bottom)).edgesIgnoringSafeArea(.all)
@@ -102,6 +102,7 @@ struct ProfileView: View {
             Button(action: {
    
                 users.addUser(name: "something", income: "123.32")
+                
                 print("The user has been added to the json file")
                 
                 
