@@ -52,6 +52,7 @@ class Users: ObservableObject {
     
     func addCategory(category cat: String) {
         self.users.categories.append(cat)
+        writeToFile(file: "userData.json")
         }
     
     

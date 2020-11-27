@@ -13,7 +13,7 @@ struct AddExpenseView: View {
         UITableView.appearance().backgroundColor = .clear // Clears the light gray background color in the form below
     }
     
-
+    
     
     @State private var categorySelectionIndex = 0
     @State private var showingCategoryEdit: Bool = false
@@ -28,7 +28,6 @@ struct AddExpenseView: View {
     @EnvironmentObject var expenses: Expenses // the expense list object
     @EnvironmentObject var users: Users // the expense list object
     @State private var pickerID = 0
-    @State private var pickerOpen = false
     
     private var category: String {
         return users.users.categories[categorySelectionIndex]
@@ -51,16 +50,20 @@ struct AddExpenseView: View {
                             
                             ForEach(0 ..< users.users.categories.count) {
                                 if users.users.categories[$0] == users.users.categories.last {
+                                    
                                     Text(users.users.categories[$0])
-                                                                  .navigationBarTitle("Select")
-                                                                  .navigationBarItems(trailing: button())
-                                                                  .tag(UUID())
-                                                            } else {
-                                                                Text(users.users.categories[$0])
-                                                                  .tag(UUID())
-                                                            }
-                                                        }.id(pickerID)
+                                        .navigationBarTitle("Select")
+                                        .navigationBarItems(trailing: button()
+                                        )
+                                        .tag(UUID())
+                                } else {
+                                    Text(users.users.categories[$0])
+                                        .tag(UUID())
+                                }
+                            }.id(pickerID)
                         }
+                        .navigationBarItems(trailing: Text(""))
+                        
                     }
                     
                     Section(header: Text("Expense Description").bold().foregroundColor(Color("custGreen")))
@@ -76,9 +79,9 @@ struct AddExpenseView: View {
                     
                     Section(header: Text("Date of Expense ").bold().foregroundColor(Color("custGreen")))
                     {
-                    DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
-                                    Text("Select a date")
-                                }
+                        DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
+                            Text("Select a date")
+                        }
                     }
                     
                     Button(action:
@@ -87,7 +90,7 @@ struct AddExpenseView: View {
                                 descr = ""
                                 amount = ""
                                 print(date)
-    //                            
+                                //
                                 
                             })
                     {
@@ -102,17 +105,17 @@ struct AddExpenseView: View {
         }
     }
     func button() -> some View {
-                HStack(alignment: .center, content: {
-                    Button(action: {
-                        self.showingCategoryEdit.toggle()
-                    }) {
-                        Image(systemName: "plus")
-                    }.sheet(isPresented: $showingCategoryEdit) {
-                        AddCategory(isPresented: self.$showingCategoryEdit).onDisappear(perform: {
-                            pickerID += 1
-                        })
-                    }
+        HStack(alignment: .center, content: {
+            Button(action: {
+                self.showingCategoryEdit.toggle()
+            }) {
+                Image(systemName: "plus")
+            }.sheet(isPresented: $showingCategoryEdit) {
+                AddCategory(isPresented: self.$showingCategoryEdit).onDisappear(perform: {
+                    pickerID += 1
                 })
+            }
+        })
     }
 }
 

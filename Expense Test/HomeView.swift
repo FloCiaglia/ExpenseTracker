@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
    @EnvironmentObject var expenses: Expenses
+    
 
     
     var body: some View {
