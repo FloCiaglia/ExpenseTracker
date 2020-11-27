@@ -13,10 +13,11 @@ struct CategoryView: View {
     
     //    This gives this view access to the object declared in the NavigationTabs view.
     @EnvironmentObject var expenses: Expenses
+    @EnvironmentObject var users: Users
     
     //    computed property for dynamic list of categories
     var categories: Array<String> {
-        var cat = (Expense.Category.allCases.map { $0.rawValue })
+        var cat = users.users.categories
         cat.insert("All", at: 0)
         return cat
     }

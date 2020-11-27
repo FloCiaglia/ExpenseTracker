@@ -24,16 +24,6 @@ class Expense: Identifiable, Codable {
     
     
     
-    enum Category: String, CaseIterable, Codable, Hashable {
-        case groceries = "Groceries"
-        case rent = "Rent"
-        case utilities = "Utilities"
-        case income = "Income"
-        case savings = "Savings"
-        
-        
-    }
-    
     init(id exp_id: String, description desc: String, amount ex_am: Double, date d: Date, category cat: String) {
         self.id = exp_id
         self.description = desc
@@ -58,11 +48,11 @@ class Expense: Identifiable, Codable {
 
 class Expenses: ObservableObject {
     @Published var allExpenses: [Expense]
-    @Published var categories: [String]
+
     
     init() {
         self.allExpenses = load("expenseData.json")
-        self.categories = ["Groceries", "Rent", "Utilities", "Income", "Savings"]
+
         
         
         //        This is a test initialization of the list for testing.. eventually the data would be read on init()

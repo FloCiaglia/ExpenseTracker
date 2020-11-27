@@ -16,18 +16,24 @@ struct AddExpenseView: View {
 
     
     @State private var categorySelectionIndex = 0
+    @State private var showingCategoryEdit: Bool = false
     
     // variables connected to the text field boxes
     @State private var descr = ""
     @State private var amount = ""
     @State private var date = Date()
     
-    private var category: String {
-        return expenses.categories[categorySelectionIndex]
-        
-    }
+    
     
     @EnvironmentObject var expenses: Expenses // the expense list object
+    @EnvironmentObject var users: Users // the expense list object
+    @State private var pickerID = 0
+    @State private var pickerOpen = false
+    
+    private var category: String {
+        return users.users.categories[categorySelectionIndex]
+        
+    }
     
     var body: some View
     {
@@ -42,10 +48,18 @@ struct AddExpenseView: View {
                     {
                         Picker(selection: $categorySelectionIndex, label: Text("Selected Catagory"))
                         {
-                            ForEach(0 ..< expenses.categories.count)
-                            {
-                                Text(expenses.categories[$0])
-                            }
+                            
+                            ForEach(0 ..< users.users.categories.count) {
+                                if users.users.categories[$0] == users.users.categories.last {
+                                    Text(users.users.categories[$0])
+                                                                  .navigationBarTitle("Select")
+                                                                  .navigationBarItems(trailing: button())
+                                                                  .tag(UUID())
+                                                            } else {
+                                                                Text(users.users.categories[$0])
+                                                                  .tag(UUID())
+                                                            }
+                                                        }.id(pickerID)
                         }
                     }
                     
@@ -80,9 +94,25 @@ struct AddExpenseView: View {
                         Text("Add Expense").font(.title).fontWeight(.heavy).foregroundColor(.white).bold()
                     }
                     .frame(width: 320, height: 60).background(Color("custGreen"))
-                }.navigationBarTitle("Enter Expense!")
+                }
+                .navigationBarTitle("Enter Expense!")
+                
+                
             }
         }
+    }
+    func button() -> some View {
+                HStack(alignment: .center, content: {
+                    Button(action: {
+                        self.showingCategoryEdit.toggle()
+                    }) {
+                        Image(systemName: "plus")
+                    }.sheet(isPresented: $showingCategoryEdit) {
+                        AddCategory(isPresented: self.$showingCategoryEdit).onDisappear(perform: {
+                            pickerID += 1
+                        })
+                    }
+                })
     }
 }
 

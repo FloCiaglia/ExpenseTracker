@@ -1,7 +1,8 @@
 {
     
     "name": "",
-    "income": ""
+    "income": "",
+    "categories":["Income", "Savings", "Rent"]
         
     
 }
