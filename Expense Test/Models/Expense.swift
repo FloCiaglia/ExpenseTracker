@@ -146,7 +146,18 @@ class Expenses: ObservableObject {
         return formattedNum
     }
     
-    
+    func getTotalCategory() -> Int {
+        
+        let dict: Dictionary<String, Double> = completeDictionaryBuilder();
+        var total: Int = 0;
+        
+        for tot in dict {
+            total = total+1
+        }
+        
+        return total;
+        
+    }
     
     func getGrandTotal() -> CGFloat {
         var total: CGFloat = 0
@@ -218,6 +229,8 @@ class Expenses: ObservableObject {
         return postcategAmmDict
         
     }
+    
+    
     
     //This method helps with calculating degrees for slice.
     func pieDegreeCalculator(preDegDict: Dictionary<String, Double>) -> Dictionary<String, Double>

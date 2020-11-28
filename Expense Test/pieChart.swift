@@ -55,7 +55,7 @@ struct PieceOfPie: Shape{
         Path { p in
             let center = CGPoint(x: rect.midX, y: rect.midY)
             p.move(to: center)
-            p.addArc(center: center, radius: rect.width/3, startAngle: Angle(degrees: startDegree), endAngle: Angle(degrees: endDegree), clockwise: false)
+            p.addArc(center: center, radius: rect.width/2, startAngle: Angle(degrees: startDegree), endAngle: Angle(degrees: endDegree), clockwise: false)
             p.closeSubpath()
 
         }
@@ -80,12 +80,27 @@ struct pieChart: View {
 
                 ZStack {
                     PieceOfPie(startDegree: lastDegree, endDegree: lastDegree + currentDegree).fill(currentData.color)
+                    
+                    GeometryReader { geometry in
+                        
+                        Text(currentData.key).font(.custom("Avenir", size: 20)).foregroundColor(.white).position(getLabelCoordinate(in: geometry.size, for: lastDegree + (currentDegree/2)))
+                    }
+                    
+                    
                 }
             }
 
 
         }
 
+    }
+    
+    private func getLabelCoordinate(in geoSize: CGSize, for degree: Double) -> CGPoint{
+        let center = CGPoint(x: geoSize.width/2, y: geoSize.height/2)
+        let radius = geoSize.width/3
+        let yCoordinate = radius * sin(CGFloat(degree) * CGFloat.pi / 180)
+        let xCoordinate = radius * cos(CGFloat(degree) * CGFloat.pi / 180)
+        return CGPoint(x: center.x + xCoordinate, y: center.y + yCoordinate)
     }
 
 }

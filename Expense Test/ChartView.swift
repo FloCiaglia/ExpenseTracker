@@ -15,7 +15,7 @@ struct ChartView: View {
         NavigationView
         {
             ZStack{
-                pieChart().position(x: 160.0, y: 240.0)
+                pieChart().frame(maxWidth: 330, maxHeight: 330)
                 Spacer().frame(height: 90)
               //  ZStack{
                 //Text("Hello")
