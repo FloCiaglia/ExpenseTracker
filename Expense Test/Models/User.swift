@@ -12,15 +12,17 @@ class User: Identifiable, Codable {
     
     let name: String
     let income: String
+    let image: Data
 //    let age: Int
 //    let profession: String
 //    let gender: String
     
     //Taken out for now: , age year: Int, profession job: String, gender sex: String
-    init(name n: String, income money: String) {
+    init(name n: String, income money: String, image pic: UIImage) {
         self.name = n
         self.income = money
-
+        self.image = pic.jpegData(compressionQuality: 1.0)!
+        
 //        self.age = year
 //        self.profession = job
 //        self.gender = sex
@@ -37,15 +39,19 @@ class Users: ObservableObject {
     }
     
     //, age year: Int, profession job: String, gender sex: String
-    func addUser(name n: String, income money: String) {
+    func addUser(name n: String, income money: String, image pic: UIImage) {
         //, age: year, profession: job, gender: sex
-        let newUser = User(name: n, income: money)
+        let newUser = User(name: n, income: money, image: pic)
         users = newUser
         writeToFile(file: "userData.json")
         
         //debug statement
         print("new users added")
         
+    }
+    
+    func getImage() -> UIImage? {
+        return UIImage(data: users.image)
     }
     
     // This method writes to the json file

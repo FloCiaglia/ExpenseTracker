@@ -24,6 +24,7 @@ struct ProfileView: View {
     
     
     
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -97,7 +98,7 @@ struct ProfileView: View {
                  
                 Button(action: {
        
-                    users.addUser(name: self.username, income: self.income)
+                    users.addUser(name: self.username, income: self.income, image: self.inputImage!)
                     
                     
                 }) {
