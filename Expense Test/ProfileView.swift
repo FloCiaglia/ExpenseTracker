@@ -42,10 +42,15 @@ struct ProfileView: View {
                     } else {
                         image?
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 170, height: 120)
-                            .border(Color.black, width: 3)
+                            
+                            .frame(width: 150, height: 150)
+//                            .border(Color.black, width: 3)
                             .clipped()
+                            .clipShape(Circle())
+                            .overlay(
+                                Circle().stroke(Color.white, lineWidth:4))
+                            .shadow(radius: 10)
+                            .scaledToFit()
                     }
                 
                 }
