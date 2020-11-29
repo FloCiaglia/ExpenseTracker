@@ -37,8 +37,7 @@ struct ProfileView: View {
                         Image(uiImage: (UIImage(named: "camera-icon"))!)
 
                             .frame(width: 20, height: 10)
-//                            .foregroundColor(.white)
-//                            .font(.system(size: 88))
+
 
                     } else {
                         image?
@@ -91,7 +90,25 @@ struct ProfileView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
                 
                  
-                RoundedButton(users: self.users).padding(.top, 40).navigationBarTitle("\(username)'s Profile").font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
+                Button(action: {
+       
+                    users.addUser(name: self.username, income: self.income)
+                    
+                    
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Save").bold()
+                            .frame(minWidth: 0, maxWidth: 130, maxHeight: 10)
+                            .padding()
+                            .foregroundColor(.black)
+                            .background(Color.white)
+                            .cornerRadius(20)
+                            .font(.body)
+                        Spacer()
+                    }
+                }
+                    .padding(.top, 40).navigationBarTitle("\(username)'s Profile").font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
             }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
                 
@@ -102,7 +119,6 @@ struct ProfileView: View {
     func loadImage() {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
-        //image.frame(width: 70, height: 50)
         
         
     }
@@ -115,41 +131,6 @@ struct ProfileView: View {
         }
     }
     
-    
-    struct RoundedButton : View {
-       
-       @ObservedObject var users: Users
-        
-        var body: some View {
-            Button(action: {
-   
-                users.addUser(name: "something", income: "123.32")
-                
-                print("The user has been added to the json file")
-                
-                
-            }) {
-                HStack {
-                    Spacer()
-                    Text("Save").bold()
-                        .frame(minWidth: 0, maxWidth: 130, maxHeight: 10)
-                        .padding()
-                        .foregroundColor(.black)
-                        .background(Color.white)
-                        .cornerRadius(20)
-                        .font(.body)
-                    Spacer()
-                }
-            }
-        }
-    }
-    
-    struct ContentView: View {
-        var body: some View {
-            Image("fall-leaves")
-                .resizable()
-                .scaledToFit()
-        }
-    }
+
 }
 
