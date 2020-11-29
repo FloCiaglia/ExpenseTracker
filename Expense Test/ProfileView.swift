@@ -27,16 +27,33 @@ struct ProfileView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Spacer().frame(height: 70) // Spacing from navigation bar title
-                if (image == nil) {
-                    Image(uiImage: (UIImage(named: "camera-icon"))!)
-                        
-                        .frame(width: 20, height: 10)
-                } else {
-                    image?
-                        .resizable()
-                        .scaledToFit()
+                Spacer().frame(height: 70)// Spacing from navigation bar title
+                ZStack{
+                    Rectangle()
+                        .fill(Color.secondary)
+                        .frame(width: 70, height: 50)
+                    
+                    if (image == nil) {
+                        Image(uiImage: (UIImage(named: "camera-icon"))!)
+
+                            .frame(width: 20, height: 10)
+//                            .foregroundColor(.white)
+//                            .font(.system(size: 88))
+
+                    } else {
+                        image?
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 170, height: 120)
+                            .border(Color.black, width: 3)
+                            .clipped()
+                    }
+                
                 }
+                .onTapGesture {
+                    self.showImagePicker = true
+                }
+                
                 Button("choose picture"){
                     self.showSheet = true
                     
@@ -51,9 +68,11 @@ struct ProfileView: View {
                         self.showImagePicker = true
                         
                     },
+                  
                     .cancel()
                     ])
                 }
+                
                 Spacer().frame(height: 30)
                 
                 Text("Name")
@@ -71,10 +90,11 @@ struct ProfileView: View {
                 TextField("Enter your income", text: $income)
                     .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
                 
-                //we need to add an instantiation before using the instance of the user 
+                 
                 RoundedButton(users: self.users).padding(.top, 40).navigationBarTitle("\(username)'s Profile").font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
             }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
+                
             }.frame(maxWidth: .infinity, maxHeight: .infinity).background(LinearGradient(gradient: Gradient(colors: [.blue, Color("custGreen")]), startPoint: .top, endPoint: .bottom)).edgesIgnoringSafeArea(.all)
         }
     }
@@ -82,6 +102,8 @@ struct ProfileView: View {
     func loadImage() {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
+        //image.frame(width: 70, height: 50)
+        
         
     }
     
