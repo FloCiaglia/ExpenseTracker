@@ -73,9 +73,9 @@ struct AddExpenseView: View {
                         TextField("Enter Description", text: $descr).textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     
-                    if( users.getImage() != nil) {
-                        Image(uiImage: users.getImage()!)
-                    }
+//                    if( users.getImage() != nil) {
+//                        Image(uiImage: users.getImage()!)
+//                    }
                     
                     
                     Section(header: Text("Expense Amount").bold().foregroundColor(Color("custGreen")))

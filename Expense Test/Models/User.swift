@@ -27,6 +27,8 @@ class User: Identifiable, Codable {
 //        self.profession = job
 //        self.gender = sex
     }
+    
+   
 }
 
 
@@ -50,9 +52,14 @@ class Users: ObservableObject {
         
     }
     
+    func getUsername() -> String{
+        return String(users.name)
+    }
+    
     func getImage() -> UIImage? {
         return UIImage(data: users.image)
     }
+    
     
     // This method writes to the json file
     func writeToFile(file: String)

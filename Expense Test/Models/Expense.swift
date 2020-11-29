@@ -139,11 +139,22 @@ class Expenses: ObservableObject {
         return numbFormat(num: exp)
     }
     
+    
     func numbFormat(num: Double) -> String {
         
         let formattedNum = String(format: "%.2f", num)
         
         return formattedNum
+    }
+    
+    
+    func getBalance() -> Double{
+        var balance: Double = 0
+        let income = gettotalIncome()
+        let expenses = gettotalExpense()
+        balance = (Double(income) ?? 0) - (Double(expenses) ?? 0)
+        
+        return balance
     }
     
     
