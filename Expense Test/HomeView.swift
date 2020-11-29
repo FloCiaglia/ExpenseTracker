@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var expenses: Expenses
+    @EnvironmentObject var categories: Categories
     
     
     
@@ -26,7 +27,7 @@ struct HomeView: View {
         
                     Text("We are 24 hours open to the service.").font(.subheadline).position(x: 155.0, y: 120)
         
-                    Text("You have a total of " +  String(expenses.getTotalCategory()) + " categories!").bold().font(.subheadline).multilineTextAlignment(.leading).frame(width: 120.0).position(x: 130, y: 250).foregroundColor(.white).opacity(0.7)
+                    Text("You have a total of " +  String(categories.categories.count) + " categories!").bold().font(.subheadline).multilineTextAlignment(.leading).frame(width: 120.0).position(x: 130, y: 250).foregroundColor(.white).opacity(0.7)
         
                     Image("icons8-money_bag").resizable().frame(width: 100.0, height: 100.0).position(x: 290.0, y: 250)
         

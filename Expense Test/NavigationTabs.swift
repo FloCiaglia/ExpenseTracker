@@ -20,6 +20,7 @@ struct NavigationTabs: View {
     //name n: String, income money: Double, age year: Int, profession job: Double, gender sex: String)
     //, age: 32, profession: "Engineer", gender: "Female"
     var usrs = Users()
+    var categories = Categories()
     
     var body: some View {
         ZStack {
@@ -56,12 +57,13 @@ struct NavigationTabs: View {
             }
             .environmentObject(expenses)
             .environmentObject(usrs)
+            .environmentObject(categories)
             if showTitle {
                 Title()
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {self.showTitle.toggle()}
                         
-                        print(expenses.getTotalCategory())
+                        
             }
                 
             

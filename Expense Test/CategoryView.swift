@@ -13,11 +13,11 @@ struct CategoryView: View {
     
     //    This gives this view access to the object declared in the NavigationTabs view.
     @EnvironmentObject var expenses: Expenses
-    @EnvironmentObject var users: Users
+    @EnvironmentObject var categories: Categories
     
     //    computed property for dynamic list of categories
-    var categories: Array<String> {
-        var cat = users.users.categories
+    var pickerCategories: Array<String> {
+        var cat = categories.getStringArray()
         cat.insert("All", at: 0)
         return cat
     }
@@ -26,11 +26,11 @@ struct CategoryView: View {
     
     // computed property filter expenses based on catagory selected
     private var filteredExpenses: [Expense] {
-        if (categories[categorySelectionIndex] == "All") {
+        if (pickerCategories[categorySelectionIndex] == "All") {
             return expenses.allExpenses
         }
         else {
-            return expenses.allExpenses.filter { $0.category == categories[categorySelectionIndex] }
+            return expenses.allExpenses.filter { $0.category == pickerCategories[categorySelectionIndex] }
         }
     }
     
@@ -40,10 +40,10 @@ struct CategoryView: View {
                 Form {
                     Section {
                         Picker(selection: $categorySelectionIndex, label: Text("Selected Category").bold()) {
-                            ForEach(0 ..< categories.count) {
-                                Text(self.categories[$0])
+                            ForEach(0 ..< pickerCategories.count) {
+                                Text(self.pickerCategories[$0])
                             }
-                        }
+                        }.id(categories.categories.count)
                     }.listRowBackground(Color.white)
                     List {
                         ForEach(filteredExpenses, id: \.id) {

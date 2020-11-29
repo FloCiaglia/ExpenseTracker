@@ -2,21 +2,21 @@ import SwiftUI
 
 struct AddCategory: View {
     @Binding var isPresented: Bool
-    @EnvironmentObject var users: Users
+    @EnvironmentObject var categories: Categories
+    
     @State private var category: String = ""
     
     var body: some View {
         VStack {
-            Section(header: Text("Expense Description").bold().foregroundColor(Color("custGreen")))
+            Section(header: Text("New Category").bold().foregroundColor(Color("custGreen")))
             {
-                TextField("Enter Description", text: $category).textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("Enter new category", text: $category).textFieldStyle(RoundedBorderTextFieldStyle())
             }
             Button(action: {
                 if (self.category != "") {
                     print(self.category)
-                    users.addCategory(category: self.category)
+                    categories.addCategory(category: self.category)
                 }
-                print(users.users.categories)
                     close()
                 
             }) {

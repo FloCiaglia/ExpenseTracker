@@ -31,6 +31,8 @@
 		33B8F5FD2544CAF700EAC168 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */; };
 		33B8F6022544CB8500EAC168 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F6012544CB8500EAC168 /* CategoryView.swift */; };
 		33B8F6102544D2C600EAC168 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8F60F2544D2C600EAC168 /* Title.swift */; };
+		33F27FBB25732155005F8E62 /* categoryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 33F27FBA25732155005F8E62 /* categoryData.json */; };
+		33F27FC0257321DC005F8E62 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F27FBF257321DC005F8E62 /* Category.swift */; };
 		B7DA4A65256D8F2900769969 /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = B7DA4A64256D8F2900769969 /* userData.json */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		33B8F5FC2544CAF700EAC168 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		33B8F6012544CB8500EAC168 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		33B8F60F2544D2C600EAC168 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		33F27FBA25732155005F8E62 /* categoryData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categoryData.json; sourceTree = "<group>"; };
+		33F27FBF257321DC005F8E62 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B7DA4A64256D8F2900769969 /* userData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +193,7 @@
 				330D867A253BE248000DB61A /* Expense.swift */,
 				330D867C253BE471000DB61A /* Data.swift */,
 				33639C8F25530714005A5355 /* User.swift */,
+				33F27FBF257321DC005F8E62 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			children = (
 				330D867F253BE58F000DB61A /* expenseData.json */,
 				B7DA4A64256D8F2900769969 /* userData.json */,
+				33F27FBA25732155005F8E62 /* categoryData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7DA4A65256D8F2900769969 /* userData.json in Resources */,
+				33F27FBB25732155005F8E62 /* categoryData.json in Resources */,
 				330D8648253BCF9E000DB61A /* LaunchScreen.storyboard in Resources */,
 				330D8645253BCF9E000DB61A /* Preview Assets.xcassets in Resources */,
 				330D8680253BE58F000DB61A /* expenseData.json in Resources */,
@@ -346,6 +353,7 @@
 			files = (
 				33B8F5D52544C94400EAC168 /* HomeView.swift in Sources */,
 				330D868E253BF694000DB61A /* ExpenseDetail.swift in Sources */,
+				33F27FC0257321DC005F8E62 /* Category.swift in Sources */,
 				33B8F5F82544CAD800EAC168 /* ProfileView.swift in Sources */,
 				332883E525478BEF00DCADCE /* ImagePicker.swift in Sources */,
 				330D8692253BF700000DB61A /* ExpenseRow.swift in Sources */,

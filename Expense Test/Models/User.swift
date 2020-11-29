@@ -12,16 +12,15 @@ class User: Identifiable, Codable {
     
     let name: String
     let income: String
-    var categories: [String]
 //    let age: Int
 //    let profession: String
 //    let gender: String
     
     //Taken out for now: , age year: Int, profession job: String, gender sex: String
-    init(name n: String, income money: String, categories cat: [String]) {
+    init(name n: String, income money: String) {
         self.name = n
         self.income = money
-        self.categories = cat
+
 //        self.age = year
 //        self.profession = job
 //        self.gender = sex
@@ -40,8 +39,7 @@ class Users: ObservableObject {
     //, age year: Int, profession job: String, gender sex: String
     func addUser(name n: String, income money: String) {
         //, age: year, profession: job, gender: sex
-        let basicCat = ["Income", "Savings"]
-        let newUser = User(name: n, income: money, categories: basicCat)
+        let newUser = User(name: n, income: money)
         users = newUser
         writeToFile(file: "userData.json")
         
@@ -49,12 +47,6 @@ class Users: ObservableObject {
         print("new users added")
         
     }
-    
-    func addCategory(category cat: String) {
-        self.users.categories.append(cat)
-        writeToFile(file: "userData.json")
-        }
-    
     
     // This method writes to the json file
     func writeToFile(file: String)

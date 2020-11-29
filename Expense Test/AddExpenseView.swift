@@ -26,11 +26,12 @@ struct AddExpenseView: View {
     
     
     @EnvironmentObject var expenses: Expenses // the expense list object
-    @EnvironmentObject var users: Users // the expense list object
+    @EnvironmentObject var users: Users
+    @EnvironmentObject var categories: Categories
     @State private var pickerID = 0
     
     private var category: String {
-        return users.users.categories[categorySelectionIndex]
+        return categories.categories[categorySelectionIndex].category
         
     }
     
@@ -48,16 +49,17 @@ struct AddExpenseView: View {
                         Picker(selection: $categorySelectionIndex, label: Text("Selected Catagory"))
                         {
                             
-                            ForEach(0 ..< users.users.categories.count) {
-                                if users.users.categories[$0] == users.users.categories.last {
+                            ForEach(0 ..< categories.categories.count) {
+                                let cat: String = categories.categories[$0].category
+                                if categories.categories[$0] == categories.categories.last {
                                     
-                                    Text(users.users.categories[$0])
+                                    Text(cat)
                                         .navigationBarTitle("Select")
                                         .navigationBarItems(trailing: button()
                                         )
                                         .tag(UUID())
                                 } else {
-                                    Text(users.users.categories[$0])
+                                    Text(cat)
                                         .tag(UUID())
                                 }
                             }.id(pickerID)
