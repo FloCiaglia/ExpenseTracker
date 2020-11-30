@@ -62,7 +62,7 @@ class Expenses: ObservableObject {
     func addExpense(description desc: String, amount ex_am: Double, date d: Date, category cat: String) {
         let newExpense = Expense(id: UUID().uuidString, description: desc, amount: ex_am, date: d, category: cat)
         self.allExpenses.insert(newExpense, at: 0)
-        print(d)
+        print(d.timeIntervalSinceReferenceDate)
         
         writeToFile(file: "expenseData.json")
         

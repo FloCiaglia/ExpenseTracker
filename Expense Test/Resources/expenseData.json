@@ -1,43 +1,10 @@
 [
 {
-    "description": "Winco",
-    "category": "Groceries",
-    "id": "1001",
-    "amount": 84.91,
-    "income": false,
-    "date": 568011600000
-},
-{
-    "description": "Winco",
-    "category": "Groceries",
-    "id": "1002",
-    "amount": 84.91,
-    "income": false,
-    "date": 568011600000
-},
-{
-    "description": "HPE",
+    "description": "Test Income",
     "category": "Income",
-    "id": "1003",
-    "amount": 84.91,
-    "income": true,
-    "date": 568011600000
-},
-{
-    "description": "Winco",
-    "category": "Groceries",
-    "id": "1004",
-    "amount": 84.91,
-    "income": false,
-    "date": 568011600000
-},
-{
-    "description": "walmart",
-    "category": "Utilities",
-    "id": "1005",
-    "amount": 200.45,
-    "income": false,
-    "date": 568011600000
+    "id": "1001",
+    "amount": 100,
+    "date": 628438595.572386
 }
 ]
 

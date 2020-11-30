@@ -18,15 +18,18 @@ struct ExpenseRow: View {
     var body: some View {
         HStack {
             
-            VStack {
+            VStack(alignment: .leading) {
                 Text(expense.description)
+                    .multilineTextAlignment(.leading)
                 Text("\(expense.date, formatter: dateFormatter)")
                     .font(.footnote)
                     .foregroundColor(Color.gray)
+                    .multilineTextAlignment(.leading)
                 Text(String(expense.category)
                 )
                 .font(.footnote)
                 .foregroundColor(Color.gray)
+                .multilineTextAlignment(.leading)
                 
                 
                 
