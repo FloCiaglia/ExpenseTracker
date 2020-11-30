@@ -88,7 +88,7 @@ struct ProfileView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 300, height: 50)
                 Spacer().frame(height: 30)
                 
-                Text("Income")
+                Text("Monthly Income")
                     .font(.callout)
                     .bold().foregroundColor(.white)
                 
