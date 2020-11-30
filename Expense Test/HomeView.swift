@@ -103,7 +103,8 @@ struct HomeView: View {
                         .position(x: 210, y: 110)
                         .opacity(0.4)
                     
-                    Text(String(expenses.getBalance())).bold().font(.largeTitle).position(x: 210, y:110).foregroundColor(.white).opacity(0.7)
+                    Text("$\(expenses.getBalance(), specifier: "%.2f")")
+                        .bold().font(.largeTitle).position(x: 210, y:110).foregroundColor(.white).opacity(0.7)
                 }
                 Spacer().frame(height: 40)
                 

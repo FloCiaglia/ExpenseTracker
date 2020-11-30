@@ -32,7 +32,7 @@ struct ExpenseRow: View {
                 
             }
             Spacer()
-            Text("$" + String(expense.amount))
+            Text("$\(expense.amount, specifier: "%.2f")")
                 .foregroundColor((expense.category != "Income") ? Color.red: Color.green)
             
             
